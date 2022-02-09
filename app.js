@@ -5,6 +5,6 @@ const schema = require("./main-graphql-schema");
 const app = express();
 
 dotenv.config();
-app.use("/graphql", graphqlHTTP({ schema: schema, graphiql: true }));
+app.use("/api/graphql", graphqlHTTP({ schema: schema, graphiql: true }));
 
 module.exports = { app };

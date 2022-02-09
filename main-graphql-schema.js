@@ -27,7 +27,6 @@ const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
     linkLeadCharacterToMovie: linkLeadCharacterToMovieMutation,
-    removeLeadCharacterFromMovie: removeLeadCharacterFromMovieMutation,
     linkSuperPowersToSuperHero: linkSuperPowersToSuperHeroMutation,
     removeSuperPowerFromSupeHero: removeSuperPowerFromSuperHeroMutation
   }

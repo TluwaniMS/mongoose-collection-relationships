@@ -12,14 +12,4 @@ const linkLeadCharacterToMovieMutation = {
   }
 };
 
-const removeLeadCharacterFromMovieMutation = {
-  type: GraphQLString,
-  args: {
-    movieId: { type: new GraphQLNonNull(GraphQLString) }
-  },
-  resolve(parent, args) {
-    return removeLeadCharacterFromMovie(args);
-  }
-};
-
-module.exports = { linkLeadCharacterToMovieMutation, removeLeadCharacterFromMovieMutation };
+module.exports = { linkLeadCharacterToMovieMutation };

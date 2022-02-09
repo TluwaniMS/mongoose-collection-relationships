@@ -18,10 +18,4 @@ const linkLeadCharacterToMovie = async (args) => {
   return `Operation completed successfully.`;
 };
 
-const removeLeadCharacterFromMovie = async (args) => {
-  await MovieModel.updateOne({ _id: args.movieId }, { $set: { leadCharacter: args.superHeroId } });
-
-  return `Operation completed successfully.`;
-};
-
-module.exports = { getAllMovies, getMovieById, linkLeadCharacterToMovie, removeLeadCharacterFromMovie };
+module.exports = { getAllMovies, getMovieById, linkLeadCharacterToMovie };

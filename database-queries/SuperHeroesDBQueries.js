@@ -12,4 +12,23 @@ const getSuperHeroById = async (args) => {
   return superHero;
 };
 
-module.exports = {getAllSuperHeroes,getSuperHeroById};
+const linkSuperPowersToSuperHero = async (args) => {
+  args.superPowerIds.forEach(async (id) => {
+    await SuperHeroModel.updateOne({ _id: args.superHeroId }, { $push: { superPowers: id } });
+  });
+
+  return `Operation completed successfully.`;
+};
+
+const removeSuperPowerFromSuperHero = async (args) => {
+  const superHero = await SuperHeroModel.findOne({ _id: args.superHeroId });
+
+  const indexOfSuperPowerId = superHero.superPowers.indexOf(args.superPowerId);
+  superHero.superPowers.splice(indexOfSuperPowerId, 1);
+
+  await superHero.save();
+
+  return `Operation completed successfully.`;
+};
+
+module.exports = { getAllSuperHeroes, getSuperHeroById, removeSuperPowerFromSuperHero, linkSuperPowersToSuperHero };

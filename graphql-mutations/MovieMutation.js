@@ -12,8 +12,7 @@ const linkLeadCharacterToMovieMutation = {
 const removeLeadCharacterFromMovieMutation = {
   type: GraphQLString,
   args: {
-    movieId: { type: new GraphQLNonNull(GraphQLString) },
-    superHeroId: { type: new GraphQLNonNull(GraphQLString) }
+    movieId: { type: new GraphQLNonNull(GraphQLString) }
   },
   resolve(parent, args) {}
 };

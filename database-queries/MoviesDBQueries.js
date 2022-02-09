@@ -1,13 +1,13 @@
 const { MovieModel } = require("../database-models/Movie");
 
 const getAllMovies = async () => {
-  const movies = await MovieModel.find({});
+  const movies = await MovieModel.find({}).populate("leadCharacter");
 
   return movies;
 };
 
 const getMovieById = async (args) => {
-  const movie = await MovieModel.findOne({ _id: args._id });
+  const movie = await MovieModel.findOne({ _id: args._id }).populate("leadCharacter");
 
   return movie;
 };

@@ -1,4 +1,5 @@
 const { GraphQLString, GraphQLNonNull } = require("graphql");
+const { linkLeadCharacterToMovie, removeLeadCharacterFromMovie } = require("../database-queries/MoviesDBQueries");
 
 const linkLeadCharacterToMovieMutation = {
   type: GraphQLString,
@@ -6,7 +7,9 @@ const linkLeadCharacterToMovieMutation = {
     movieId: { type: new GraphQLNonNull(GraphQLString) },
     superHeroId: { type: new GraphQLNonNull(GraphQLString) }
   },
-  resolve(parent, args) {}
+  resolve(parent, args) {
+    return linkLeadCharacterToMovie(args);
+  }
 };
 
 const removeLeadCharacterFromMovieMutation = {
@@ -14,7 +17,9 @@ const removeLeadCharacterFromMovieMutation = {
   args: {
     movieId: { type: new GraphQLNonNull(GraphQLString) }
   },
-  resolve(parent, args) {}
+  resolve(parent, args) {
+    return removeLeadCharacterFromMovie(args);
+  }
 };
 
 module.exports = { linkLeadCharacterToMovieMutation, removeLeadCharacterFromMovieMutation };

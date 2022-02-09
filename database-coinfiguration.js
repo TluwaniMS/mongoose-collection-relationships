@@ -1,6 +1,6 @@
 const { connect } = require("mongoose");
 
-const dataBaseURL = process.env.MONGO_URL || "mongodb://localhost:27017/doctors_directory";
+const dataBaseURL = process.env.MONGO_URL || "mongodb://localhost:27017/super_heroes_directory";
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 async function connectToDataBase() {

@@ -13,9 +13,7 @@ const getSuperHeroById = async (args) => {
 };
 
 const linkSuperPowersToSuperHero = async (args) => {
-  args.superPowerIds.forEach(async (id) => {
-    await SuperHeroModel.updateOne({ _id: args.superHeroId }, { $push: { superPowers: id } });
-  });
+  await SuperHeroModel.updateOne({ _id: args.superHeroId }, { $push: { superPowers: { $each: args.superPowerIds } } });
 
   return `Operation completed successfully.`;
 };

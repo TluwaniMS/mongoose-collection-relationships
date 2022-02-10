@@ -21,12 +21,7 @@ const linkSuperPowersToSuperHero = async (args) => {
 };
 
 const removeSuperPowerFromSuperHero = async (args) => {
-  const superHero = await SuperHeroModel.findOne({ _id: args.superHeroId });
-
-  const indexOfSuperPowerId = superHero.superPowers.indexOf(args.superPowerId);
-  superHero.superPowers.splice(indexOfSuperPowerId, 1);
-
-  await superHero.save();
+  await SuperHeroModel.updateOne({ _id: args.superHeroId }, { $pull: { superPowers: args.superPowerId } });
 
   return `Operation completed successfully.`;
 };

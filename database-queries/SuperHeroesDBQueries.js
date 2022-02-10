@@ -31,4 +31,19 @@ const removeSuperPowerFromSuperHero = async (args) => {
   return `Operation completed successfully.`;
 };
 
-module.exports = { getAllSuperHeroes, getSuperHeroById, removeSuperPowerFromSuperHero, linkSuperPowersToSuperHero };
+const linkMultipleSuperHerosToSuperPower = async (args) => {
+  await SuperHeroModel.updateMany(
+    { _id: { $in: [...args.supeHeroIds] } },
+    { $push: { superPowers: args.superPowerId } }
+  );
+
+  return `Operation completed successfully.`;
+};
+
+module.exports = {
+  getAllSuperHeroes,
+  getSuperHeroById,
+  removeSuperPowerFromSuperHero,
+  linkSuperPowersToSuperHero,
+  linkMultipleSuperHerosToSuperPower
+};

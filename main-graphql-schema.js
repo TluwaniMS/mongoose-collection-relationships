@@ -2,13 +2,11 @@ const { GraphQLObjectType, GraphQLSchema } = require("graphql");
 const { getAllMoviesQuery, getMovieByIdQuery } = require("./graphql-queries/MovieQuery");
 const { getAllSuperHeroesQuery, getSuperHeroByIdQuery } = require("./graphql-queries/SuperHeroQuery");
 const { getAllSuperPowersQuery, getSuperPowerByIdQuery } = require("./graphql-queries/SuperPowerQuery");
-const {
-  linkLeadCharacterToMovieMutation,
-  removeLeadCharacterFromMovieMutation
-} = require("./graphql-mutations/MovieMutation");
+const { linkLeadCharacterToMovieMutation } = require("./graphql-mutations/MovieMutation");
 const {
   linkSuperPowersToSuperHeroMutation,
-  removeSuperPowerFromSuperHeroMutation
+  removeSuperPowerFromSuperHeroMutation,
+  linkSuperPowerToMulitipleSuperHeroesMutation
 } = require("./graphql-mutations/SuperHeroMutation");
 
 const Query = new GraphQLObjectType({
@@ -28,7 +26,8 @@ const Mutation = new GraphQLObjectType({
   fields: {
     linkLeadCharacterToMovie: linkLeadCharacterToMovieMutation,
     linkSuperPowersToSuperHero: linkSuperPowersToSuperHeroMutation,
-    removeSuperPowerFromSupeHero: removeSuperPowerFromSuperHeroMutation
+    removeSuperPowerFromSupeHero: removeSuperPowerFromSuperHeroMutation,
+    linkSuperPowerToMulitipleSuperHeroes: linkSuperPowerToMulitipleSuperHeroesMutation
   }
 });
 

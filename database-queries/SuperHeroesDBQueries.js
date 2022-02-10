@@ -33,7 +33,7 @@ const removeSuperPowerFromSuperHero = async (args) => {
 
 const linkMultipleSuperHerosToSuperPower = async (args) => {
   await SuperHeroModel.updateMany(
-    { _id: { $in: [...args.supeHeroIds] } },
+    { _id: { $in: [...args.superHeroIds] } },
     { $push: { superPowers: args.superPowerId } }
   );
 

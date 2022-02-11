@@ -23,7 +23,7 @@ app.use(
         ? ((message = InternalServerErrorResponse.message), (statusCode = InternalServerErrorResponse.statusCode))
         : ((message = UnknownRequestErrorResponse.message), (statusCode = UnknownRequestErrorResponse.statusCode));
 
-      return { message: message, statusCode: statusCode };
+      return { message: message, status: statusCode };
     }
   })
 );

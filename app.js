@@ -1,7 +1,10 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const { graphqlHTTP } = require("express-graphql");
 const schema = require("./main-graphql-schema");
+const { graphqlHTTP } = require("express-graphql");
+const { InternalServerErrorResponse } = require("./error-handling-messages/InternalServerErrorResponse");
+const { UnknownRequestErrorResponse } = require("./error-handling-messages/UnknownRequestErrorResponse");
+
 const app = express();
 
 dotenv.config();
@@ -17,10 +20,8 @@ app.use(
       console.log(error);
 
       error.originalError
-        ? ((message = "There was an internal server error, please try again later"), (statusCode = 500))
-        : ((message =
-            "There was an error fulfilling your request, please check your request and ensure it's pointing to the correct end-point"),
-          (statusCode = 400));
+        ? ((message = InternalServerErrorResponse.message), (statusCode = InternalServerErrorResponse.statusCode))
+        : ((message = UnknownRequestErrorResponse.message), (statusCode = UnknownRequestErrorResponse.statusCode));
 
       return { message: message, statusCode: statusCode };
     }

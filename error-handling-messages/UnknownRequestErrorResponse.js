@@ -4,4 +4,4 @@ const UnknownRequestErrorResponse = {
   statusCode: 500
 };
 
-module.exports = {UnknownRequestErrorResponse}
+module.exports = { UnknownRequestErrorResponse };

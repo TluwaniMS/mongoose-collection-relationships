@@ -7,6 +7,10 @@ This is a basic node-js project that I created to learn mongodb functions that c
 * Latest stable version of Node Package Manager
 * MongoDB Database
 
+# Project Setup:
+## NB!
+Please make sure you have a running instance of Mongodb.
+
 # Dependencies:
 * DOTENV
 * EXPRESS
